@@ -1,35 +1,15 @@
 #pragma once
 
+#include <err.h>
 
-#define RETHROW(exp)                                                                                                   \
+#define RETHROW_BASE(exp, traceWith, handleWith)                                                                       \
+	err = exp;                                                                                                         \
+	if (IS_ERROR(err)) [[unlikely]]                                                                                   \
 	{                                                                                                                  \
-		err_t temp = exp;                                                                                              \
-		if (IS_ERROR(temp))                                                                                            \
-		{                                                                                                              \
-			err.value = temp.value;                                                                                    \
-			TRACE_MACRO("");                                                                                          \
-			HANDLE_MACRO();                                                                                         \
-		}                                                                                                              \
+		traceWith;                                                                                                     \
+		handleWith;                                                                                                    \
 	}
 
-#define RETHROW_NOHANDLE(exp)                                                                                          \
-	{                                                                                                                  \
-		err_t temp = exp;                                                                                              \
-		if (IS_ERROR(temp))                                                                                            \
-		{                                                                                                              \
-			err.value = temp.value;                                                                                    \
-			TRACE_MACRO("");                                                                                          \
-		}                                                                                                              \
-	}
-
-#define RETHROW_NOTRACE(exp)                                                                                           \
-	{                                                                                                                  \
-		err_t temp = exp;                                                                                              \
-		if (IS_ERROR(temp))                                                                                            \
-		{                                                                                                              \
-			err.value = temp.value;                                                                                    \
-			HANDLE_MACRO();                                                                                         \
-		}                                                                                                              \
-	}
+#define RETHROW_BASE_NOTRACE(exp, handleWith) RETHROW_BASE(exp, NONE, handleWith)
 
 

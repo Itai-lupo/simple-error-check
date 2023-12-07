@@ -30,6 +30,15 @@
 #define WARN(exp) CHECK_NOHANDLE(exp)
 #define QUITE_CHECK(exp) CHECK_NOTRACE(exp)
 
+
+
+#define RETHROW_TRACE(exp, msg, ...) RETHROW_BASE(exp, TRACE_MACRO(msg, __VA_OPT__(, ) __VA_ARGS__), HANDLE_MACRO())
+#define RETHROW_NOHANDLE_TRACE(exp, msg, ...) RETHROW_BASE(exp, TRACE_MACRO(msg, __VA_OPT__(, ) __VA_ARGS__), NONE)
+
+#define RETHROW(exp) RETHROW_TRACE(exp, "")
+#define RETHROW_NOHANDLE(exp) RETHROW_NOHANDLE_TRACE(exp, "")
+#define RETHROW_NOTRACE(exp) RETHROW_BASE(exp, NONE, HANDLE_MACRO())
+
 #define QUITE_RETHROW(exp) RETHROW_NOTRACE(exp)
 #define REWARN(exp) RETHROW_NOHANDLE(exp)
 
