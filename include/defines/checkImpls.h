@@ -1,11 +1,12 @@
 #pragma once
 #include "defines/errType.h"
+#include "defines/unlikely.h"
 
 #define NONE
 
 #define CHECK_BASE(exp, errCode, st, sst, severity, traceWith, handleWith)                                             \
-	if (!(exp)) [[unlikely]]                                                                                           \
-	{                                                                                                                  \
+    unlikelyIf(!(exp))                                                                                                 \
+    {                                                                                                                  \
 		CONSTRACT_ERR(errCode, st, sst, severity);                                                                     \
 		traceWith;                                                                                                     \
 		handleWith;                                                                                                    \

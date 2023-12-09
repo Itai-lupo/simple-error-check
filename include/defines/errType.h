@@ -27,7 +27,7 @@ typedef struct
 
 
 #define CONSTRACT_ERR(errCode, st, sst, severityVal)                                                                   \
-	err = err_t{                                                                                                       \
+	err = (err_t){                                                                                                       \
 		.fileId = FILE_ID,                                                                                             \
 		.line = __LINE__,                                                                                              \
 		.systemType = st,                                                                                              \

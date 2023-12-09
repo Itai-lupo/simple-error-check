@@ -1,6 +1,5 @@
 #pragma once
 
-
 #include "defines/errType.h"
 #include "defines/defaults.h"
 
@@ -22,15 +21,12 @@
 #define CHECK_NOHANDLE_TRACE(exp, msg, ...)                                                                            \
 	CHECK_NOHANDLE_ERRORCODE_TRACE(exp, DEFAULT_ERRORCODE, msg __VA_OPT__(, ) __VA_ARGS__)
 
-
 #define CHECK(exp) CHECK_ERRORCODE(exp, DEFAULT_ERRORCODE)
 #define CHECK_NOTRACE(exp) CHECK_NOTRACE_ERRORCODE(exp, DEFAULT_ERRORCODE)
 #define CHECK_NOHANDLE(exp) CHECK_NOHANDLE_ERRORCODE(exp, DEFAULT_ERRORCODE)
 
 #define WARN(exp) CHECK_NOHANDLE(exp)
 #define QUITE_CHECK(exp) CHECK_NOTRACE(exp)
-
-
 
 #define RETHROW_TRACE(exp, msg, ...) RETHROW_BASE(exp, TRACE_MACRO(msg, __VA_OPT__(, ) __VA_ARGS__), HANDLE_MACRO())
 #define RETHROW_NOHANDLE_TRACE(exp, msg, ...) RETHROW_BASE(exp, TRACE_MACRO(msg, __VA_OPT__(, ) __VA_ARGS__), NONE)

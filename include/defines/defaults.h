@@ -9,6 +9,7 @@
 #endif // !HANDLE_MACRO
 
 #ifndef DEFAULT_ERRORCODE
+#include <errno.h>
 #define DEFAULT_ERRORCODE (uint64_t) errno
 #endif // !DEFAULT_ERRORCODE
 
