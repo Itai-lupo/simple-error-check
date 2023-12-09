@@ -1,9 +1,5 @@
 #pragma once
 
-#ifndef TRACE_MACRO
-#error "please provide a TRACE_MACRO(err_t err) to use"
-#endif //! TRACE_MACRO
-
 #ifndef HANDLE_MACRO
 #define HANDLE_MACRO(err) goto cleanup;
 #endif // !HANDLE_MACRO
@@ -24,5 +20,3 @@
 #ifndef FILE_ID
 #define FILE_ID 0
 #endif // !FILE_ID
-
-

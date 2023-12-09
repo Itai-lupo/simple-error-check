@@ -37,3 +37,6 @@ typedef struct
 	};
 
 #define IS_ERROR(err) (err.value != 0)
+
+#define THROWS [[nodiscard]]
+
