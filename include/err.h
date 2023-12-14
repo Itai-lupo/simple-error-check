@@ -2,6 +2,6 @@
 #include "defines/checkApi.h"
 #include "defines/rethrowApi.h"
 
-#include "defines/errType.h"
+#include "types/err_t.h"
 #include "defines/defaults.h"
 

@@ -1,5 +1,5 @@
 #pragma once
-#include "defines/errType.h"
+#include "types/err_t.h"
 #include "defines/unlikely.h"
 
 #ifndef TRACE_MACRO
