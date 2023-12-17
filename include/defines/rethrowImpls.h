@@ -1,15 +1,28 @@
+/**
+ * @file rethrowImpls.h
+ * @author itai lupo
+ * @brief the base code for rethrows
+ * @version 0.1
+ * @date 2023-12-17
+ *
+ * @copyright Copyright (c) 2023
+ *
+ */
 #pragma once
 
-#include <err.h>
 #include "defines/unlikely.h"
+#include <err.h>
 
-#ifndef RETRACE_MACRO
-#pragma message ("please provide RETRACE_MACRO to use other wise nothing will be printed")
-#define RETRACE_MACRO(msg, ...)
-#endif //! RETRACE_MACRO
-
-
-
+/**
+ * @brief handle and trace errors returned from function of type err_t
+ *
+ * @param exp an expression that evaluate to err_t(only used once).
+ * @param traceWith code used to trace the error
+ * @param handleWith code used to handle the error with
+ *
+ * @see err_t
+ * @see CHECK
+ */
 #define RETHROW_BASE(exp, traceWith, handleWith)                                                                       \
 	err = exp;                                                                                                         \
 	unlikelyIf(IS_ERROR(err))                                                                                          \
@@ -18,8 +31,13 @@
 		handleWith;                                                                                                    \
 	}
 
+/**
+ * @brief handle errors returned from function of type err_t
+ *
+ * @param exp an expression that evaluate to err_t(only used once).
+ * @param handleWith code used to handle the error with
+ *
+ * @see err_t
+ * @see CHECK
+ */
 #define RETHROW_BASE_NOTRACE(exp, handleWith) RETHROW_BASE(exp, NONE, handleWith)
-
-
-#define RETHROW_TRACE(exp, msg, ...) RETHROW_BASE(exp, RETRACE_MACRO(msg, __VA_OPT__(, ) __VA_ARGS__), HANDLE_MACRO())
-#define RETHROW_NOHANDLE_TRACE(exp, msg, ...) RETHROW_BASE(exp, RETRACE_MACRO(msg, __VA_OPT__(, ) __VA_ARGS__), NONE)
