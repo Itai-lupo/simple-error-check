@@ -24,7 +24,7 @@
  * @see RETRACE_MACRO
  * @see HANDLE_MACRO
  */
-#define RETHROW_TRACE(exp, msg, ...) RETHROW_BASE(exp, RETRACE_MACRO(msg, __VA_OPT__(, ) __VA_ARGS__), HANDLE_MACRO())
+#define RETHROW_TRACE(exp, msg, ...) RETHROW_BASE(exp, RETRACE_MACRO(msg __VA_OPT__(, ) __VA_ARGS__), HANDLE_MACRO())
 
 /**
  * @brief trace errors returned from function of type err_t  with custom message
@@ -38,7 +38,7 @@
  * @see RETRACE_MACRO
  * @see HANDLE_MACRO
  */
-#define RETHROW_NOHANDLE_TRACE(exp, msg, ...) RETHROW_BASE(exp, RETRACE_MACRO(msg, __VA_OPT__(, ) __VA_ARGS__), NONE)
+#define RETHROW_NOHANDLE_TRACE(exp, msg, ...) RETHROW_BASE(exp, RETRACE_MACRO(msg __VA_OPT__(, ) __VA_ARGS__), NONE)
 
 /**
  * @brief handle and trace errors returned from function of type err_t
