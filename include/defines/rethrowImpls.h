@@ -24,11 +24,14 @@
  * @see CHECK
  */
 #define RETHROW_BASE(exp, traceWith, handleWith)                                                                       \
-	err = exp;                                                                                                         \
-	unlikelyIf(IS_ERROR(err))                                                                                          \
 	{                                                                                                                  \
-		traceWith;                                                                                                     \
-		handleWith;                                                                                                    \
+		err_t temp_err = exp;                                                                                          \
+		unlikelyIf(IS_ERROR(temp_err))                                                                                 \
+		{                                                                                                              \
+			err = temp_err;                                                                                            \
+			traceWith;                                                                                                 \
+			handleWith;                                                                                                \
+		}                                                                                                              \
 	}
 
 /**
