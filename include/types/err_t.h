@@ -14,16 +14,16 @@
 #include <time.h>
 
 /**
- * @brief this the value the CHECKS and RETHROWS use
+ * @brief this is the value that CHECKS and RETHROWS use
  *
- * @note if you wan use RETHROW then you need to return this struct
+ * @note if you want to use RETHROW then you need to return this struct
  *
  * @see CHECK
  * @see RETHROW
  *
  * @var err_t::fileId
  * the file the error happened on
- *@see FILE_ID
+ * @see FILE_ID
  *
  * @var err_t::line
  * the line the error happened on

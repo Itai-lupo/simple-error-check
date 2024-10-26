@@ -4,14 +4,13 @@
  * @brief the base code for checks
  * @version 0.1
  * @date 2023-12-17
- * 
+ *
  * @copyright Copyright (c) 2023
- * 
+ *
  */
 #pragma once
 #include "defines/unlikely.h"
 #include "types/err_t.h"
-
 
 /**
  * @brief used in order to do nothing in the traceWith or handlWith.
