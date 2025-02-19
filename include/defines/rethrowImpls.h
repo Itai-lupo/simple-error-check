@@ -11,7 +11,6 @@
 #pragma once
 
 #include "defines/unlikely.h"
-#include <err.h>
 
 /**
  * @brief handle and trace errors returned from function of type err_t

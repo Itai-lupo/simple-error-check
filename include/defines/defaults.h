@@ -69,5 +69,5 @@
  * @brief the fileId
  *  this should be a uniq id for every source file.
  */
-#define FILE_ID 0
+#define FILE_ID -1
 #endif
